@@ -1,0 +1,23 @@
+{
+  "name": "cordova-apple-watch-conduit",
+  "version": "1.0.0",
+  "description": "Cordova plugin for Apple Watch Conduit",
+  "cordova": {
+    "id": "cordova-apple-watch-conduit",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "cordova",
+    "apple watch",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "Olivier Goguel",
+  "license": "Apache 2.0"
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * Copyright (c) Microsoft Corporation.  All rights reserved.
+ * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ -->
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-apple-watch-conduit" version="1.0.0">
+
+    <name>Cordova plugin for Apple Watch Conduit</name>
+    <description>Cordova plugin for Apple Watch Conduit</description>
+    <keywords>cordova,apple watch</keywords>
+
+    <author>Olivier Goguel</author>
+    <license>Apache 2.0</license>
+
+    <js-module src="www/applewatchconduit.js" name="applewatchconduit">
+          <clobbers target="applewatchconduit" />
+    </js-module>
+    
+    <!-- ios -->
+    <platform name="ios">    
+    	
+        <config-file target="config.xml" parent="/*">
+            <feature name="AppleWatchConduit">
+                <param name="ios-package" value="CDVAppleWatchConduit" /> 
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/CDVAppleWatchConduit.h" />
+        <source-file src="src/ios/CDVAppleWatchConduit.m" />
+        <header-file src="src/ios/AppleWatchConduitLibrary.h" />
+        <source-file src="src/ios/AppleWatchConduitLibrary.m" />
+        <header-file src="src/ios/lib/MMWormhole.h" />
+        <source-file src="src/ios/lib/MMWormhole.m" />
+
+        <framework autogen="true" src="Foundation.framework"/>
+
+    </platform>
+
+</plugin>
