@@ -10,7 +10,7 @@
     pluginVersion : "1.0.0",
     commandHandler : undefined,
 
-    setCommandHandler : function(_handler) {
+    onReceiveCommand : function(_handler) {
      
       this.commandHandler = _handler;
       var _this = this;

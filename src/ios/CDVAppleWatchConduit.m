@@ -71,14 +71,11 @@ static NSMutableArray* lastCommands;
 
 - (void) sendMessage:(CDVInvokedUrlCommand*)command;
 {
-    CDVPluginResult* pluginResult;
     NSString *data = [command.arguments objectAtIndex:0];
-    NSString *error = [awLibrary sendMessage:data];
-    if (error==nil)
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    else
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:error];
-
+   
+    [awLibrary sendMessage:data];
+    CDVPluginResult* pluginResult = pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 

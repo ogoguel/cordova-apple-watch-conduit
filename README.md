@@ -5,6 +5,9 @@ The goal of this plugin is to provide Cordova apps with an easy way to communica
 
 The conduit takes care of setting a reliable tunnel between your application and your extension (whether your application has been launched or not)
 
+Basic usage : send a command from the extension (on the willActivate) to receive a message from the Application.
+
+
 # Setup
 Unfortunately, setting up an Apple Watch project requires quite a few steps 
 
@@ -111,7 +114,7 @@ Once initialized, you can send message to the Javascript at any time. For exampl
 }
 ```
 
-### In JS
+### In Javascript
 
 The integration is pretty similar : once you've received the ready event, you can do the same : initialize the app, set a listener, and send message 
 
@@ -120,7 +123,7 @@ The integration is pretty similar : once you've received the ready event, you ca
       undefined, // by default "group.<your bundle id>",
       function success(_groupId){
     
-        applewatchconduit.setCommandHandler(function(_command) {
+        applewatchconduit.onReceiveCommand(function(_command) {
               console.log("received :"+_command);
               applewatchconduit.sendMessage("pong "+_command);
             });
@@ -130,7 +133,7 @@ The integration is pretty similar : once you've received the ready event, you ca
       });
 ```
 ### Credit
-* Coded by Olivier Goguel o@oguel.com
+* Coded by Olivier Goguel o@goguel.com
 * Inspired by the Cordova Apple Watch Plugin (https://github.com/leecrossley/cordova-plugin-apple-watch)
 * Using a fork of the MMWormHole Library by MutualMobile (https://github.com/ogoguel/MMWormhole)
 
